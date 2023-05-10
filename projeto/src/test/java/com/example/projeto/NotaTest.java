@@ -18,7 +18,7 @@ public class NotaTest {
     // Nota Salva
 
     @Test
-    public void naoDeveSalvarNotaSalva() {
+    public void naoDeveSalvarNotaSalvaa() {
         nota.setEstado(NotaEstadoSalva.getInstance());
         assertFalse(nota.salvar());
     }
@@ -68,9 +68,10 @@ public class NotaTest {
     }
 
     @Test
-    public void naoDeveApagarNotaAtualizada() {
+    public void deveSalvarNotaaAtualizada() {
         nota.setEstado(NotaEstadoAtualizada.getInstance());
-        assertFalse(nota.apagar());
+        assertTrue(nota.salvar());
+        assertEquals(NotaEstadoSalva.getInstance(), nota.getEstado());
     }
 
     @Test
